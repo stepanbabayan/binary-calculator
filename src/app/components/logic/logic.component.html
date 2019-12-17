@@ -1,0 +1,98 @@
+<div class="logic-container">
+    <div class="text-right">
+      <button [disabled]="!ra || !rb" class="btn btn-dark btn-sm"
+      (click)="i < 9 && start()">
+        <div *ngIf="selectedType==burst">Start</div>
+        <div *ngIf="selectedType==step">Step</div>
+      </button> | 
+      <button class="btn btn-dark btn-sm" (click)="reset()">Reset</button>
+    </div>
+    <br>
+    <div class="controller">
+      <div class="col-4 controller">
+        <label for="ra" class="col-form-label logic-col">RA</label>
+        <input [hidden]="started" type="number" name="ra" id="ra" class="form-control input-col" [(ngModel)]="ra">
+        <input [hidden]="!started" disabled type="number" name="ra" id="ra" class="form-control input-col" [(ngModel)]="raCpy">
+        <!-- (keydown)="check($event)" (keyup)="set($event)" -->
+      </div>
+      <div class="col-4 controller">
+        <label for="rb" class="col-form-label logic-col">RB</label>
+        <input [disabled]="started" type="number" name="rb" id="rb" class="form-control input-col" [(ngModel)]="rb">
+      </div>
+      <div class="col-4 controller">
+        <label class="col-form-label logic-col">Input</label>
+        <ng-select [items]="inputModes" class="input-col"
+          [searchable]=false
+          [clearable]=false
+          placeholder="Select input mode"
+          [(ngModel)]="selectedInput">
+        </ng-select>
+      </div>
+    </div>
+    <br>
+    <div class="controller">
+        <div class="col-4">
+        </div>
+        <div class="col-4 controller">
+          <label class="col-form-label logic-col">Method</label>
+          <ng-select [items]="startMethods" class="input-col"
+            [searchable]=false
+            [clearable]=false
+            placeholder="Select start method"
+            [(ngModel)]="selectedMethod">
+          </ng-select>
+        </div>
+        <div class="col-4 controller">
+          <label class="col-form-label logic-col">Mode</label>
+          <ng-select [items]="startTypes" class="input-col"
+            [searchable]=false
+            [clearable]=false
+            placeholder="Select start type"
+            [(ngModel)]="selectedType">
+          </ng-select>
+        </div>
+    </div>
+    <div class="controller">
+        <div class="col-8">
+        </div>
+
+    </div>
+    <hr>
+    <table *ngIf="started" class="table table-info">
+      <thead>
+        <tr>
+          <th scope="col">CF</th>
+          <th scope="col">RGR</th>
+          <th scope="col">RGA</th>
+          <th scope="col"></th>
+        </tr>
+        <tr>
+          <td>0</td>
+          <td>{{fillNumber(raCpy, 0, 8)}}</td>
+          <td id="rga">{{fillNumber(raCpy, 8)}}</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td id="rgb">{{fillNumber(rbCpy, 8)}}</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th></th>
+          <th>RBG</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <br>
+      <tbody>
+        <tr *ngFor="let i of logicArr">
+          <td>{{i.left}}</td>
+          <td>{{i.mid}}</td>
+          <td>{{i.right}}</td>
+          <td>{{i.action}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

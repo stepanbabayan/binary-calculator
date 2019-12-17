@@ -1,0 +1,17 @@
+.main-container {
+    padding-top: 50px;
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-top: 40px;
+}
+@media (max-width: 768px) {
+    .main-container {
+        padding-top: 25px;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+/* .btn {
+    width: 200px;
+    font-size: 30px;
+} */

@@ -1,0 +1,70 @@
+@media (max-width: 768px) {
+    /* XS */
+    .logic-col {
+        flex: 0 0 41.66666%;
+        max-width: 41.66666%;
+    }
+    .input-col {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+    .logic-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+@media (min-width: 768px) and (max-width: 992px) {
+    /* SM */
+    .logic-col {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .input-col {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+    .logic-container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+@media (min-width: 992px) {
+    /* LG */
+    .logic-col {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .input-col {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+}
+
+
+.logic-container {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.controller {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.input-col {
+    min-width: 100px;
+}
+
+.col-4 {
+    min-width: 150px;
+}
+
+.col-form-label {
+    min-width: 40px;
+}
+
+div.text-right {
+    position: fixed;
+    top: 12px;
+    right: 20px;
+    z-index: 1031;
+}
